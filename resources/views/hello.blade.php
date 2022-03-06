@@ -11,46 +11,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
 
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <style>
+    {{-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> --}}
+    {{-- <style>
         [x-cloak] {
             display: none !important;
         }
-    </style>
+    </style> --}}
 
 </head>
 <body class="bg-[url('/img/himaster.gif')] bg-cover	">
-
-    <nav class="flex items-center justify-between p-6 container mx-auto">
-        <a href="#">
-            <img class="w-10 h-10" src="{{asset('img/HIMASTER.png')}}" alt="Logo Himaster">
-        </a>
-        <div class="text-lg text-gray-600 hidden lg:flex">
-            <a href="#" class="block mt-4 lg:inline-block text-teal-600 lg:mt-0 mr-10">
-                Home
-            </a>
-            <a href="#" class="block mt-4 lg:inline-block hover:text-gray-700 lg:mt-0 mr-10">
-                Services
-            </a>
-            <a href="#" class="block mt-4 lg:inline-block hover:text-gray-700 lg:mt-0 mr-10">
-                Portfolio
-            </a>
-        </div>
-        <div class="flex items-center">
-            <div class="mr-5 lg:mr-0">
-                <button class="py-2 px-6 rounded-md text-gray-600 hover:text-gray-700 text-lg">Sign in</button>
-                <button class="py-2 px-6 bg-amber-800 hover:bg-amber-900 rounded-md text-white text-lg">Sign up</button>
-            </div>
-            <div class="block lg:hidden">
-                <button class="flex items-center px-4 py-3 border rounded text-teal-500 border-teal-500 focus:outline-none">
-                    <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <title>Menu</title>
-                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </nav>
 
     <main class="mt-12 lg:mt-32">
         <section class="container mx-auto px-6">
