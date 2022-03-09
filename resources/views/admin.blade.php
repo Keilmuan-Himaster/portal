@@ -89,15 +89,19 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <div class="p-2 rounded hover:bg-gray-200">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-current text-gray-800"
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                            </svg>
-                        </div>
-                    </a>
+                    <div class="p-2 rounded hover:bg-gray-200">
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                            <button type="submit">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-current text-gray-800"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                                </svg>
+                            </button>
+
+                        </form>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -212,7 +216,6 @@
                                 <h5 class="mt-1 text-sm text-indigo-500 font-bold"><a href="{{$data->link}}" target="_blank">{{$data->name}}</a></h5>
                                     <input name="id" type="text"hidden value="{{$data->id}}">
                                     <input name="status" type="text"hidden value="{{$data->status}}">
-
                                     <button type="submit" class="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4
                                         focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5
                                         py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">

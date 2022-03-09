@@ -37,7 +37,7 @@
                     <ul>
                         @foreach($data as $data)
                         <li>
-                            <a class="w-4/6 relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-amber-800 via-amber-900 to-orange-200 group-hover:from-blue-200 group-hover:via-blue-300 group-hover:to-yellow-200 dark:text-white dark:hover:text-white focus:ring-4 focus:ring-blue-100 dark:focus:ring-blue-400" href="{{$data->link}}" target="_blank">
+                            <a class="w-4/6 relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-amber-800 via-amber-900 to-orange-200 group-hover:from-blue-200 group-hover:via-blue-300 hover:text-white group-hover:to-yellow-200 dark:text-white dark:hover:text-white focus:ring-4 focus:ring-blue-100 dark:focus:ring-blue-400" href="{{$data->link}}" target="_blank">
                                 <span class="w-full relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
                                     {{$data->name}}
                                 </span>
