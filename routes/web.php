@@ -16,7 +16,10 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('admin', [AdminController::class, 'index']);
+Route::post('admin/post', [AdminController::class, 'store'])->name('admin.post');
+Route::get('admin/delete/{id}', [AdminController::class, 'destroy'])->name('admin.delete.{id}');
+Route::post('admin/update', [AdminController::class, 'update'])->name('admin.update');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

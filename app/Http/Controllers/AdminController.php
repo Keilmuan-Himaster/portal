@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Data;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -18,7 +20,9 @@ class AdminController extends Controller
 
     public function index()
     {
-        return view('admin');
+        $user = Auth::user();
+        $data = Data::all();
+        return view('admin', compact(['user','data']));
     }
 
     /**
@@ -28,7 +32,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -39,7 +43,13 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new Data();
+         $data->name = $request->name;
+         $data->link = $request->link;
+         $data->duration = $request->duration;
+         // dd($data->slug);
+         $data->save();
+         return redirect()->back();
     }
 
     /**
@@ -71,9 +81,18 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        if($request->status == 'true') {
+            $request->status = 'false';
+        }
+        else {
+            $request->status = 'true';
+        }
+         Data::where('id',$request->id)->update(['status'=>$request->status]);
+        //  dd($request->status);
+
+         return redirect()->back();
     }
 
     /**
@@ -84,6 +103,8 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Data::find($id);
+        $data->delete();
+        return redirect()->back();
     }
 }

@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Portal</title>
+    <title>Dashboard Portal Himaster</title>
     <link rel="icon" type="image/x-icon" href="{{asset('img/logo-dark.ico')}}">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
         [x-cloak] {
@@ -84,7 +85,7 @@
             <ul class="flex items-center gap-6">
                 <li>
                     <a href="#" class="text-sm font-sans text-gray-800 font-semibold tracking-wider">
-                        Derol Hakim
+                        {{$user->name}}
                     </a>
                 </li>
                 <li>
@@ -142,7 +143,7 @@
                     <div class="flex flex-col space-y-6 md:h-full md:justify-between">
                         <div class="flex justify-between">
                             <span class="text-xs text-gray-500 font-semibold uppercase tracking-wider">
-                                PORTAL
+                                Selamat datang {{$user->name}}
                             </span>
                         </div>
                         <div class="flex gap-2 md:gap-4 justify-between items-center">
@@ -173,17 +174,24 @@
                 </div>
                 <div
                     class="col-span-2 p-6 rounded-2xl bg-gradient-to-r from-blue-300 to-blue-500 flex flex-col justify-between">
-                    <form>
-                        <div class="mb-6">
-                          <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nama website</label>
-                          <input type="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="PRESENSI HIMASTER" required>
-                        </div>
-                        <div class="mb-6">
-                          <label for="link" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Link</label>
-                          <input type="link" id="link" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="presensi.himaster.id" required>
-                        </div>
-                        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Input</button>
-                      </form>
+                    <form method="post" action="{{route('admin.post')}}">
+                        {{ csrf_field() }}
+                            <div class="mb-4">
+                                <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nama website</label>
+                                <input type="name" name="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="PRESENSI HIMASTER" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="link" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Link</label>
+                                <input type="link" name="link" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="https://presensi.himaster.id" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="duration" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Duration</label>
+                                <input type="date" name="duration" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            </div>
+                            <div class="mb-4">
+                                <button type="submit" class="text-white bg-yellow-500 hover:bg-yellow-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                            </div>
+                    </form>
                 </div>
             </div>
             <!-- End First Row -->
@@ -194,78 +202,47 @@
                         Link yang ada di portal</h2>
                     <a href="#" class="text-xs text-gray-800 font-semibold uppercase">More</a>
                 </div>
-                <div class="bg-white p-6 rounded-xl border border-gray-50">
-                    <div class="flex justify-between items-start">
-                        <div class="flex flex-col">
-                            <p class="text-xs text-gray-600 tracking-wide">Foods & Beverages</p>
-                            <h3 class="mt-1 text-lg text-blue-500 font-bold">$ 818</h3>
-                            <span class="mt-4 text-xs text-gray-500">Last Transaction 3 Hours ago</span>
-                        </div>
-                        <div class="bg-blue-500 p-2 md:p-1 xl:p-2 rounded-md">
-                            <img src="{{asset('assets/dish-2.png')}}" alt="icon" class="w-auto h-8 md:h-6 xl:h-8 object-cover">
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl border border-gray-50">
-                    <div class="flex justify-between items-start">
-                        <div class="flex flex-col">
-                            <p class="text-xs text-gray-600 tracking-wide">Foods & Beverages</p>
-                            <h3 class="mt-1 text-lg text-blue-500 font-bold">$ 818</h3>
-                            <span class="mt-4 text-xs text-gray-500">Last Transaction 3 Hours ago</span>
-                        </div>
-                        <div class="bg-blue-500 p-2 md:p-1 xl:p-2 rounded-md">
-                            <img src="{{asset('assets/dish-2.png')}}" alt="icon" class="w-auto h-8 md:h-6 xl:h-8 object-cover">
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl border border-gray-50">
-                    <div class="flex justify-between items-start">
-                        <div class="flex flex-col">
-                            <p class="text-xs text-gray-600 tracking-wide">Foods & Beverages</p>
-                            <h3 class="mt-1 text-lg text-blue-500 font-bold">$ 818</h3>
-                            <span class="mt-4 text-xs text-gray-500">Last Transaction 3 Hours ago</span>
-                        </div>
-                        <div class="bg-blue-500 p-2 md:p-1 xl:p-2 rounded-md">
-                            <img src="{{asset('assets/dish-2.png')}}" alt="icon" class="w-auto h-8 md:h-6 xl:h-8 object-cover">
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl border border-gray-50">
-                    <div class="flex justify-between items-start">
-                        <div class="flex flex-col">
-                            <p class="text-xs text-gray-600 tracking-wide">Groceries</p>
-                            <h3 class="mt-1 text-lg text-green-500 font-bold">$ 8,918</h3>
-                            <span class="mt-4 text-xs text-gray-500">Last Transaction 3 Days ago</span>
-                        </div>
-                        <div class="bg-green-500 p-2 md:p-1 xl:p-2 rounded-md">
-                            <img src="{{asset('assets/grocery.png')}}" alt="icon" class="w-auto h-8 md:h-6 xl:h-8 object-cover">
+                @foreach ($data as $data)
+                <form method="post" action="{{route('admin.update')}}">
+                    {{ csrf_field() }}
+                    <div class="bg-white p-6 rounded-xl border border-gray-50">
+                        <div class="flex justify-between items-start">
+                            <div class="flex flex-col">
+                                <p class="text-xs text-gray-600 tracking-wide">{{$data->name}}</p>
+                                <h5 class="mt-1 text-sm text-indigo-500 font-bold"><a href="{{$data->link}}" target="_blank">{{$data->name}}</a></h5>
+                                    <input name="id" type="text"hidden value="{{$data->id}}">
+                                    <input name="status" type="text"hidden value="{{$data->status}}">
+
+                                    <button type="submit" class="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4
+                                        focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5
+                                        py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        @if ($data->status == 'true')
+                                            Active
+                                        @else
+                                            Non-active
+                                        @endif
+                                    </button>
+
+
+                                <p class="text-xs text-gray-600">
+                                    @if(isset($data->duration))
+                                        {{$data->duration}}
+                                    @else
+                                        Always
+                                    @endif
+                                </p>
+
+                            </div>
+                            <div class=" p-2 md:p-1 xl:p-2 rounded-md">
+                                <img src="{{asset('assets/holiday.png')}}" alt="icon" class="w-auto h-8 md:h-6 xl:h-8 object-cover">
+                                <a type="button" href="{{url('admin/delete/').'/'.$data->id}}" class="bg-red-500 p-2 md:p-1 xl:p-2 rounded-md">
+                                    <span class="material-icons delete">delete</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl border border-gray-50">
-                    <div class="flex justify-between items-start">
-                        <div class="flex flex-col">
-                            <p class="text-xs text-gray-600 tracking-wide">Gaming</p>
-                            <h3 class="mt-1 text-lg text-yellow-500 font-bold">$ 1,223</h3>
-                            <span class="mt-4 text-xs text-gray-600">Last Transaction 4 Days ago</span>
-                        </div>
-                        <div class="bg-yellow-500 p-2 md:p-1 xl:p-2 rounded-md">
-                            <img src="{{asset('assets/gaming.png')}}" alt="icon" class="w-auto h-8 md:h-6 xl:h-8 object-cover">
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl border border-gray-50">
-                    <div class="flex justify-between items-start">
-                        <div class="flex flex-col">
-                            <p class="text-xs text-gray-600 tracking-wide">Trip & Holiday</p>
-                            <h3 class="mt-1 text-lg text-indigo-500 font-bold">$ 5,918</h3>
-                            <span class="mt-4 text-xs text-gray-500">Last Transaction 1 Month ago</span>
-                        </div>
-                        <div class="bg-indigo-500 p-2 md:p-1 xl:p-2 rounded-md">
-                            <img src="{{asset('assets/holiday.png')}}" alt="icon" class="w-auto h-8 md:h-6 xl:h-8 object-cover">
-                        </div>
-                    </div>
-                </div>
+                </form>
+                @endforeach
             </div>
             <!-- End Second Row -->
             <!-- Start Third Row -->
@@ -355,7 +332,6 @@
 
         const chart = new Chart(ctx, config);
     </script>
-
 </body>
 
 </html>

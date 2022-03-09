@@ -17,8 +17,8 @@ class CreateDataTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('link');
-            $table->string('status');
-            $table->string('duration');
+            $table->string('status')->default('false');
+            $table->date('duration')->nullable();
             $table->timestamps();
         });
     }
