@@ -28,11 +28,11 @@
                 <div class="w-full lg:w-1/2">
                     <!-- hero section description goes here -->
                     <h2 class="text-md lg:text-2xl text-gray-600">Himaster present</h2>
-                    <h1 class="text-5xl lg:text-6xl font-bold text-amber-900 mb-2 lg:mb-6">PORTAL WEB HIMASTER</h1>
-                    <p class="text-md lg:text-xl font-light text-gray-800 mb-8">Website yang menyediakan shortcut untuk seluruh web <a class="text-blue-400"href="https://himaster.id" target="_blank">Himaster</a>.</p>
+                    <h1 class="text-5xl lg:text-6xl font-bold text-amber-900 mb-2 lg:mb-6">PORTAL WEB SISKOM</h1>
+                    <p class="text-md lg:text-xl font-light text-gray-800 mb-8">Website yang menyediakan shortcut untuk seluruh web <a class="text-blue-400"href="https://siskom.untan.ac.id" target="_blank">Prodi Rekayasa Sistem Komputer</a>.</p>
 
                 </div>
-                <div class="w-full lg:w-1/2 lg:pl-20">
+                <div class="w-full lg:w-1/2 lg:pl-20 text-center">
                     <!-- sign-up form goes here -->
                     <ul>
                         @foreach($data as $data)
